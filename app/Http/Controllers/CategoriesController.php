@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Category;
 
+use App\Http\Requests\CategoryFormRequest;
+
 class CategoriesController extends Controller
 {
     /**
@@ -34,11 +36,8 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryFormRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required|unique:categories'
-        ]);
 
         Category::create([
             'name' => $request->name
