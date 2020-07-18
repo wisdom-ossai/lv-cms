@@ -75,15 +75,23 @@
 
         <main class="py-4">
             @auth
-            <div class="container-fluid">
-                <div class="row">
+            <div class="container">
+                @if(session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session()->get('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
+                <div class="row mt-4">
                     <div class="col-md-3">
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <a href="/posts">Posts</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/categories">Categories</a>
+                                <a href="categories">Categories</a>
                             </li>
                         </ul>
                     </div>
