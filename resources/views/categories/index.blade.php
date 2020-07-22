@@ -9,6 +9,7 @@
         All Categories
     </div>
     <div class="card-body">
+        @if(sizeOf($categories))
         <ul class="list-group">
             @foreach($categories as $category)
             <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -26,6 +27,12 @@
 
             @endforeach
         </ul>
+        @else
+        <div>
+            <p class="text-center font-weight-bold">No Category Available</p>
+        </div>
+        @endif
+
     </div>
 </div>
 
