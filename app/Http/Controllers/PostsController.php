@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\PostFormRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Post;
 use Illuminate\Support\Facades\Storage;
 
@@ -41,7 +42,8 @@ class PostsController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
-            'img_url' => $request->img_url->store('posts')
+            'img_url' => $request->img_url->store('posts'),
+            'published_at' => $request->published_at
         ]);
 
         session()->flash('success', 'Post created successfully');
@@ -78,14 +80,23 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostFormRequest $request, $id)
+    public function update(UpdatePostRequest $request, Post $post)
     {
-        Post::where('id', $id)->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'content' => $request->content,
-            'img_url' => $request->img_url
-            ]);
+
+        $data = $request->only([
+            'title',
+            'description',
+            'content',
+            'published_at',
+        ]);
+
+        if($request->hasFile('img_url')) {
+            $img = $request->img_url->store('posts');
+            $post->removeImage();
+            $data['img_url'] = $img;
+        };
+
+        $post->update($data);
 
         session()->flash('success', 'Post updated successfully');
         return redirect(route('posts.index'));
@@ -104,7 +115,7 @@ class PostsController extends Controller
                 ->firstOrFail();
                 // dd($post);
         if($post->trashed()) {
-            Storage::delete($post->img_url);
+            $post->removeImage();
             $post->forceDelete();
             session()->flash('success', 'Post successfully deleted post permanently');
             return redirect(route('trashed.posts'));

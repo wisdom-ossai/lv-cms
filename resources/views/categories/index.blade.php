@@ -62,10 +62,9 @@
 </div>
 @endsection
 
-@section('script')
+@section('scripts')
 <script>
     function handleDeletClicked(id) {
-        console.log(id);
         var form = document.getElementById('deleteCategoryForm');
         form.action = '/categories/' + id
         $('#confirmation').modal('show')

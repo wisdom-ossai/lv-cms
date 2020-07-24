@@ -119,7 +119,7 @@
 </div>
 @endsection
 
-@section('script')
+@section('scripts')
 <script>
     function handleDeletePostClicked(id) {
         var deleteForm = document.getElementById('deletePostForm');

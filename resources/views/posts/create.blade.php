@@ -31,11 +31,23 @@
             </div>
             <div class="form-group mb-3">
                 <label for="content">Content</label>
-                <textarea class="form-control" type="text" rows="8" id="content" name="content">{{ $post->content ?? ''}}</textarea>
+                <!-- <textarea class="form-control" type="text" rows="8" id="content" name="content">{{ $post->content ?? ''}}</textarea> -->
+
+                <input id="content" type="hidden" name="content" value="{{ $post->content ?? ''}}">
+                <trix-editor input="content"></trix-editor>
             </div>
             <div class="form-group mb-3">
+                <label for="content">Publication Date</label>
+                <input class="form-control" type="text" id="published_at" name="published_at" value="{{ $post->published_at ?? ''}}">
+            </div>
+            @if(isset($post) && $post->img_url)
+            <div class="form-group mb-2">
+                <img src="{{ asset('storage/' . $post->img_url) }}" alt="{{$post->title}}" class="img-fluid">
+            </div>
+            @endif
+            <div class="form-group mb-3">
                 <label for="img_url">Image</label>
-                <input class="form-control" type="file" id="img_url" name="img_url" value="{{ $post->img_url ?? ''}}">
+                <input class="form-control" type="file" id="img_url" name="img_url">
             </div>
             <div class="form-group mb-3">
                 <button type="submit" class="btn btn-success btn-sm">{{isset($post) ? 'Submit Update' : 'Submit' }}</button>
@@ -43,4 +55,19 @@
         </form>
     </div>
 </div>
+@endsection
+
+@section('styles')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.3/trix.min.css">
+@endsection
+
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.3/trix.min.js"></script>
+<script>
+    flatpickr("#published_at", {
+        enableTime: true
+    });
+</script>
 @endsection
