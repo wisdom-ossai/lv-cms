@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostFormRequest;
 use App\Http\Requests\UpdatePostRequest;
@@ -27,7 +28,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('posts.create')->withCategories(Category::all());
     }
 
     /**
@@ -43,6 +44,7 @@ class PostsController extends Controller
             'description' => $request->description,
             'content' => $request->content,
             'img_url' => $request->img_url->store('posts'),
+            'category_id' => $request->category_id,
             'published_at' => $request->published_at
         ]);
 
@@ -70,7 +72,7 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.create')->with('post', $post);
+        return view('posts.create')->with('post', $post)->withCategories(Category::all());
     }
 
     /**
@@ -88,11 +90,12 @@ class PostsController extends Controller
             'description',
             'content',
             'published_at',
+            'category_id'
         ]);
 
         if($request->hasFile('img_url')) {
-            $img = $request->img_url->store('posts');
             $post->removeImage();
+            $img = $request->img_url->store('posts');
             $data['img_url'] = $img;
         };
 

@@ -37,7 +37,20 @@
                 <trix-editor input="content"></trix-editor>
             </div>
             <div class="form-group mb-3">
-                <label for="content">Publication Date</label>
+                <label for="category_id">Publication Date</label>
+                <select id="category_id" class="form-control" type="text" name="category_id">
+                    @foreach($categories as $category)
+                    <option value="{{$category->id}}"
+                        @if(isset($post) && ($category->id === $post->category_id))
+                        selected
+                        @endif
+                        >
+                        {{$category->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group mb-3">
+                <label for="published_at">Publication Date</label>
                 <input class="form-control" type="text" id="published_at" name="published_at" value="{{ $post->published_at ?? ''}}">
             </div>
             @if(isset($post) && $post->img_url)
