@@ -11,23 +11,43 @@
     <div class="card-body">
         @if(sizeOf($posts))
         <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div style="width: 12%;">
+                    <span class="font-weight-bold">Image</span>
+                </div>
+                <div style="width: 20%;">
+                    <span class="font-weight-bold">Title</span>
+                </div>
+                <div style="width: 45%;">
+                    <span class="font-weight-bold">Description</span>
+                </div>
+                <div style="width: 13%;">
+                    <span class="font-weight-bold">Category</span>
+                </div>
+                <div style="width: 10%;">
+                    <span class="font-weight-bold">. . .</span>
+                </div>
+            </li>
             @foreach($posts as $post)
             <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="ml-auto" style="width: 12%;">
+                    <span><img src="{{ asset('storage/' . $post->img_url) }}" width="65px" height="65px" alt=""></span>
+                </div>
                 <div class="mr-2" style="width: 20%;">
                     <span>{{ $post->title }}</span>
                 </div>
-                <div class="mr-2" style="width: 65%;">
+                <div class="mr-2" style="width: 45%;">
                     <span>{{ $post->description }}</span>
                 </div>
-                <div class="ml-auto" style="width: 10%;">
-                    <span><img src="{{ asset('storage/' . $post->img_url) }}" width="65px" height="65px" alt=""></span>
+                <div class="mr-2" style="width: 13%;">
+                    <span>{{ $post->category->name }}</span>
                 </div>
-                <div class="d-flex justify-content-end align-items-center" style="width: 5%;">
+                <div class="d-flex justify-content-end align-items-center" style="width: 10%;">
                     @if($post->trashed())
                     <a type="button" class="text-success mr-2" title="Restore Post" onclick="handleRestorePostClicked({{$post->id}})"><i class="fa fa-reply"></i></a>
                     <a type="button" class="text-danger" title="Delete Post Permanentely" onclick="handleDeletePostClicked({{$post->id}})"><i class="fa fa-trash-o"></i></a>
                     @else
-                    <a href="{{route('posts.edit', $post->id )}}" class="text-primary mr-2" title="Edit Post"><i class="fa fa-pencil-square-o"></i></a>
+                    <a href="{{route('posts.edit', $post->id )}}" class="text-info mr-2" title="Edit Post"><i class="fa fa-pencil-square-o"></i></a>
                     <a type="button" class="text-danger" title="Move Post to Recycle Bin" onclick="handleArchivePostClicked({{$post->id}})"><i class="fa fa-trash"></i></a>
                     @endif
                 </div>

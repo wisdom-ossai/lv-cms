@@ -83,9 +83,20 @@
                     </button>
                 </div>
                 @endif
+                @if(session()->has('info'))
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    {{ session()->get('info') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
                 <div class="row mt-4">
                     <div class="col-md-3">
                         <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="{{route('tags.index')}}">Tags</a>
+                            </li>
                             <li class="list-group-item">
                                 <a href="{{route('posts.index')}}">Posts</a>
                             </li>

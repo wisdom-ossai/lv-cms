@@ -6,16 +6,9 @@
         {{ isset($post) ? 'Update Post' : 'Create Post'}}
     </div>
     <div class="card-body">
-        @if($errors->any())
-        @foreach($errors->all() as $error)
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{$error}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        @endforeach
-        @endif
+
+        @include('partials.errors')
+
         <form action="{{isset($post) ? route('posts.update', $post->id) : route('posts.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             @if(isset($post))
@@ -40,8 +33,7 @@
                 <label for="category_id">Publication Date</label>
                 <select id="category_id" class="form-control" type="text" name="category_id">
                     @foreach($categories as $category)
-                    <option value="{{$category->id}}"
-                        @if(isset($post) && ($category->id === $post->category_id))
+                    <option value="{{$category->id}}" @if(isset($post) && ($category->id === $post->category_id))
                         selected
                         @endif
                         >
@@ -49,6 +41,20 @@
                     @endforeach
                 </select>
             </div>
+            @if(isset($tags))
+            <div class="form-group mb-3">
+                <label for="tags">Tags</label>
+                <select id="tags" class="form-control tags-selector" type="text" name="tags[]" multiple>
+                    @foreach($tags as $tag)
+                    <option value="{{$tag->id}}" @if(isset($post) && $post->hasTag($tag->id))
+                        selected
+                        @endif
+                        >
+                        {{$tag->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            @endif
             <div class="form-group mb-3">
                 <label for="published_at">Publication Date</label>
                 <input class="form-control" type="text" id="published_at" name="published_at" value="{{ $post->published_at ?? ''}}">
@@ -73,14 +79,20 @@
 @section('styles')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.3/trix.min.css">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 @endsection
 
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.3/trix.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script>
     flatpickr("#published_at", {
         enableTime: true
+    });
+
+    $(document).ready(function() {
+        $('.tags-selector').select2();
     });
 </script>
 @endsection
