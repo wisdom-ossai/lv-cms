@@ -91,10 +91,15 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        Category::where('id', $id)->delete();
-        session()->flash('success', 'Category deleted successfully');
-        return redirect(route('categories.index'));
+        if ($category->posts->count()) {
+            session()->flash('info', 'Category cannot be deleted because it is associated to one or more posts');
+            return redirect(route('categories.index'));
+        } else {
+            $category->delete();
+            session()->flash('success', 'Category deleted successfully');
+            return redirect(route('categories.index'));
+        }
     }
 }
