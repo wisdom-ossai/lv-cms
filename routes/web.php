@@ -31,4 +31,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/trashed-posts', 'PostsController@trashed')->name('trashed.posts');
 
     Route::put('/restore/{post}', 'PostsController@retrieve')->name('retrieve.post');
+
+    Route::get('/users', 'UserController@index')->name('users.index');
+    Route::put('/users/{user}', 'UserController@makeAdmin')->name('users.makeAdmin');
+});
+
+Route::middleware(['auth', 'verifyAdmin'])->group(function () {
+    Route::get('/users', 'UserController@index')->name('users.index');
+    Route::put('/users/{user}', 'UserController@makeAdmin');
 });
