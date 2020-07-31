@@ -11,31 +11,37 @@
         @if(sizeOf($users))
         <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                <div class="w-25">
+                <div style="width: 20%">
+                    <span class="font-weight-bold">Avatar</span>
+                </div>
+                <div  style="width: 30%">
                     <span class="font-weight-bold">Name</span>
                 </div>
-                <div class="w-25">
+                <div  style="width: 25%">
                     <span class="font-weight-bold">Email</span>
                 </div>
-                <div class="w-25">
+                <div  style="width: 20%">
                     <span class="font-weight-bold">Role</span>
                 </div>
-                <div class="w-25 d-flex justify-content-end align-items-center">
+                <div class="d-flex justify-content-end align-items-center" style="width: 5%">
                     <span class="font-weight-bold">. . .</span>
                 </div>
             </li>
             @foreach($users as $user)
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                <div class="w-25">
+                <div  style="width: 20%">
+                  <img width="40" height="40" style="border-radius: 50%" src="{{ Gravatar::src($user->email) }}">
+                </div>
+                <div  style="width: 30%">
                     <span>{{ $user->name }}</span>
                 </div>
-                <div class="w-25">
+                <div  style="width: 25%">
                     <span>{{ $user->email }}</span>
                 </div>
-                <div class="w-25">
+                <div  style="width: 20%">
                     <span>{{ $user->role }}</span>
                 </div>
-                <div class="w-25 d-flex justify-content-end align-items-center">
+                <div class="d-flex justify-content-end align-items-center" style="width: 5%">
                     @if($user->role === 'admin')
                     <a type="button" class="text-danger" title="Remove admin right" onclick="handleUnmakeClicked({{$user->id}})"><i class="fa fa-lock"></i></a>
                     @else
