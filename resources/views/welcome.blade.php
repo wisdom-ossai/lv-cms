@@ -1,9 +1,6 @@
 <!doctype html>
 <html>
 
-
-<!-- Mirrored from milothemes.com/decode/demo-01/blog-post-right-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Dec 2019 00:45:03 GMT -->
-
 <head>
 
     <meta charset="utf-8">
@@ -28,27 +25,10 @@
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
 
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="{{ asset('/fonts/fontawesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- DECODE ICONS -->
     <link rel="stylesheet" href="{{asset('fonts/decode-icons/css/decode-icons.min.css')}}">
-
-    <!-- FANCYBOX -->
-    <link rel="stylesheet" href="{{asset('plugins/fancybox/jquery.fancybox.min.css')}}">
-
-    <!-- REVOLUTION SLIDER -->
-    <link rel="stylesheet" href="{{asset('plugins/revolutionslider/css/settings.css')}}">
-    <link rel="stylesheet" href="{{ asset('plugins/revolutionslider/css/layers.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/revolutionslider/css/navigation.css') }}">
-
-    <!-- OWL CAROUSEL -->
-    <link rel="stylesheet" href="{{ asset('plugins/owl-carousel/owl.carousel.css') }}">
-
-    <!-- COUNTERS -->
-    <link rel="stylesheet" href="{{ asset('plugins/counters/odometer-theme-default.css') }}">
-
-    <!-- YOUTUBE PLAYER -->
-    <link rel="stylesheet" href="{{ asset('plugins/ytplayer/css/jquery.mb.ytplayer.min.css') }}">
 
     <!-- ANIMATIONS -->
     <link rel="stylesheet" href="{{ asset('plugins/animations/animate.min.css') }}">
@@ -396,67 +376,6 @@
 
     <!-- VIEWPORT -->
     <script src="{{ asset('plugins/viewport/jquery.viewport.js') }}"></script>
-
-    <!-- MENU -->
-    <script src="{{ asset('plugins/menu/hoverIntent.js') }}"></script>
-    <script src="{{ asset('plugins/menu/superfish.js') }}"></script>
-
-    <!-- FANCYBOX -->
-    <script src="{{ asset('plugins/fancybox/jquery.fancybox.min.js') }}"></script>
-
-    <!-- REVOLUTION SLIDER  -->
-    <script src="{{ asset('plugins/revolutionslider/js/jquery.themepunch.tools.min.js') }}"></script>
-    <script src="{{ asset('plugins/revolutionslider/js/jquery.themepunch.revolution.min.js') }}"></script>
-    <script src="{{ asset('plugins/revolutionslider/js/extensions/revolution.extension.actions.min.js') }}"></script>
-    <script src="{{ asset('plugins/revolutionslider/js/extensions/revolution.extension.carousel.min.js') }}"></script>
-    <script src="{{ asset('plugins/revolutionslider/js/extensions/revolution.extension.kenburn.min.js') }}"></script>
-    <script src="{{ asset('plugins/revolutionslider/js/extensions/revolution.extension.layeranimation.min.js') }}"></script>
-    <script src="{{ asset('plugins/revolutionslider/js/extensions/revolution.extension.migration.min.js') }}"></script>
-    <script src="{{ asset('plugins/revolutionslider/js/extensions/revolution.extension.navigation.min.js') }}"></script>
-    <script src="{{ asset('plugins/revolutionslider/js/extensions/revolution.extension.parallax.min.js') }}"></script>
-    <script src="{{ asset('plugins/revolutionslider/js/extensions/revolution.extension.slideanims.min.js') }}"></script>
-    <script src="{{ asset('plugins/revolutionslider/js/extensions/revolution.extension.video.min.js') }}"></script>
-
-    <!-- OWL CAROUSEL -->
-    <script src="{{ asset('plugins/owl-carousel/owl.carousel.min.js') }}"></script>
-
-    <!-- WATERWHEEL CAROUSEL -->
-    <script src="{{ asset('plugins/waterwheelcarousel/tweenmax.min.js') }}"></script>
-    <script src="{{ asset('plugins/waterwheelcarousel/jquery.waterwheelcarousel.min.js') }}"></script>
-
-    <!-- PARALLAX -->
-    <script src="{{ asset('plugins/parallax/jquery.stellar.min.js') }}"></script>
-
-    <!-- ISOTOPE -->
-    <script src="{{ asset('plugins/isotope/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ asset('plugins/isotope/isotope.pkgd.min.js') }}"></script>
-
-    <!-- CONTACT FORM VALIDATE & SUBMIT -->
-    <script src="{{ asset('plugins/validate/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('plugins/submit/jquery.form.min.js') }}"></script>
-
-    <!-- GOOGLE MAPS -->
-    <script src="http://maps.google.com/maps/api/js"></script>
-    <script src="{{ asset('plugins/googlemaps/gmap3.min.js') }}"></script>
-
-    <!-- CHARTS -->
-    <script src="{{ asset('plugins/charts/jquery.easypiechart.min.js') }}"></script>
-
-    <!-- COUNTERS -->
-    <script src="{{ asset('plugins/counters/jquerysimplecounter.js') }}"></script>
-    <script src="{{ asset('plugins/counters/odometer.min.js') }}"></script>
-
-    <!-- INSTAFEED -->
-    <script src="{{ asset('plugins/instafeed/instafeed.min.js') }}"></script>
-
-    <!-- TWITTER -->
-    <script src="{{ asset('plugins/twitter/twitterfetcher.min.js') }}"></script>
-
-    <!-- YOUTUBE PLAYER -->
-    <script src="{{ asset('plugins/ytplayer/jquery.mb.ytplayer.min.js') }}"></script>
-
-    <!-- COUNTDOWN -->
-    <script src="{{ asset('plugins/countdown/jquery.countdown.min.js') }}"></script>
 
     <!-- ANIMATIONS -->
     <script src="{{ asset('plugins/animations/wow.min.js') }}"></script>
