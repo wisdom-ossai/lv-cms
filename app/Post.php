@@ -10,7 +10,7 @@ class Post extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title', 'description', 'content', 'img_url', 'published_at', 'category_id'];
+    protected $fillable = ['title', 'description', 'content', 'img_url', 'published_at', 'category_id', 'user_id'];
 
     public function removeImage() {
         unlink('storage/' . $this->img_url);
@@ -18,6 +18,10 @@ class Post extends Model
 
     public function category() {
         return $this->belongsTo(Category::class);
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 
     public function tags() {

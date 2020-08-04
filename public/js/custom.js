@@ -106,7 +106,7 @@
             class: ""
         }).insertAfter("header");
 
-        $("#header-sticky #logo img").attr("src", "assets/images/logo.png");
+        $("#header-sticky #logo img").attr("src", "../images/logo.png");
 
         $(window).scroll(function(){
 

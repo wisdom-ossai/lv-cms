@@ -21,6 +21,7 @@ class PostSeeder extends Seeder
             'img_url' => 'https://cdn.wallpapersafari.com/74/24/aYCjEg.jpg',
             'published_at' => now(),
             'category_id' => 1,
+            'user_id' => 1
             // 'tags' => [3, 2]
         ]);
         $post2 = Post::create([
@@ -30,6 +31,7 @@ class PostSeeder extends Seeder
             'img_url' => 'https://images5.alphacoders.com/944/thumb-350-944019.jpg',
             'published_at' => now(),
             'category_id' => 2,
+            'user_id' => 2
             // 'tags' => [1, 2]
         ]);
         $post3 = Post::create([
@@ -39,6 +41,7 @@ class PostSeeder extends Seeder
             'img_url' => 'https://i.pinimg.com/originals/fb/cb/83/fbcb83b21f125660f26a0b2d399f5257.jpg',
             'published_at' => now(),
             'category_id' => 3,
+            'user_id' => 1
             // 'tags' => [3, 4]
         ]);
         $post4 = Post::create([
@@ -47,6 +50,7 @@ class PostSeeder extends Seeder
             'img_url' => 'https://www.pixel4k.com/wp-content/uploads/2018/03/General%20Grievous%20Star%20Wars8885617589.jpg',
             'published_at' => now(),
             'category_id' => 4,
+            'user_id' => 2
             // 'tags' => [1, 4]
         ]);
         $post5 = Post::create([
@@ -56,6 +60,7 @@ class PostSeeder extends Seeder
             'img_url' => 'https://c4.wallpaperflare.com/wallpaper/895/480/30/star-wars-battlefront-ii-general-grievous-5k-wallpaper-preview.jpg',
             'published_at' => now(),
             'category_id' => 1,
+            'user_id' => 1
             // 'tags' => [1, 2, 3, 4]
         ]);
 

@@ -15,4 +15,10 @@ class FrontController extends Controller
     public function index() {
         return view('welcome')->withCategories(Category::all())->withTags(Tag::all())->withPosts(Post::all());
     }
+    /**
+     * Display Front home page for blog visitors
+     */
+    public function single(Post $post) {
+        return view('single')->withCategories(Category::all())->withTags(Tag::all())->with('post', $post);
+    }
 }

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'FrontController@index')->name('welcome');
+Route::get('post/{post}', 'FrontController@single')->name('post.single');
 
 Auth::routes();
 
