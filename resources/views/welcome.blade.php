@@ -26,19 +26,18 @@ Welcome
                 <h4 class="blog-article-title"><a href="{{ route('post.single', $post->id) }}">{{ $post->title }}</a></h4>
 
                 <ul class=" blog-article-details">
-                    <li class="date"><i class="decode-icon-time"></i> <a href="#">{{ $post->publised_at }}</a></li>
+                    <li class="date"><i class="decode-icon-time"></i> <a href="#">{{date('d-m-Y', strtotime($post->published_at))}}</a></li>
                     <li class="author"><i class="decode-icon-edit"></i> by <a href="#">{{$post->user->name}}</a></li>
                     <lI class="category"><i class="decode-icon-layers"></i> in <a href="#">{{ $post->category->name}}</a></lI>
-                    <li class="comments"><i class="decode-icon-chat"></i> <a href="#">3 Comments</a></li>
-                </ul><!-- blog-article-details -->
+                    <li class="comments"><i class="decode-icon-chat"></i> <a href="#">{{$post->comments->count()}} Comment{{$post->comments->count() <2 ? '' : 's'}} </a></li> </ul> <!-- blog-article-details -->
 
-                <div class="blog-article-content">
+                            <div class="blog-article-content">
 
-                    <p>{{$post->description}}</p>
+                                <p>{{$post->description}}</p>
 
-                    <a href="#">See more</a>
+                                <a href="#">See more</a>
 
-                </div><!-- blog-article-content -->
+                            </div><!-- blog-article-content -->
 
             </div><!-- blog-article -->
             @endforeach

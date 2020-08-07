@@ -56,7 +56,7 @@
 
                         <!-- LOGO -->
                         <div id="logo">
-                            <a href="/check">
+                            <a href="/">
                                 <img src="{{ asset('images/logo.png') }}" alt="Logo">
                             </a>
                         </div><!-- LOGO -->
