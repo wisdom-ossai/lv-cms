@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'FrontController@index')->name('welcome');
 Route::get('post/{post}', 'FrontController@single')->name('post.single');
 
+Route::post('/comments/{post}', 'CommentsController@create')->name('comments.create');
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
@@ -36,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/users/profile', 'UserController@profile')->name('users.profile');
     Route::put('/users', 'UserController@updateProfile')->name('users.update');
+
 });
 
 Route::middleware(['auth', 'verifyAdmin'])->group(function () {
