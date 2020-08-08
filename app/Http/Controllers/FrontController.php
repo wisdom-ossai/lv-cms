@@ -14,18 +14,47 @@ class FrontController extends Controller
      * Display Front home page for blog visitors
      */
     public function index() {
-        $search = request()->query('search');
-        if($search) {
-            $posts = Post::query()->where('title', 'LIKE', "%{$search}%")->orWhere('description', 'LIKE', "%{$search}%")->paginate(2);
-        } else {
-            $posts = Post::paginate(2);
-        }
-        return view('welcome')->withCategories(Category::all())->withTags(Tag::all())->with('posts', $posts);
+        $latestPosts = Post::latest()->get()->take(4);
+        return view('welcome')
+        ->withCategories(Category::all())
+        ->withTags(Tag::all())
+        ->with('posts', Post::searched()->paginate(4))
+        ->with('latestPosts', $latestPosts);
     }
     /**
      * Display Front home page for blog visitors
      */
     public function single(Post $post) {
-        return view('single')->withCategories(Category::all())->withTags(Tag::all())->with('post', $post);
+        $latestPosts = Post::latest()->get()->take(4);
+        // dd($latestPosts);
+        return view('single')
+        ->withCategories(Category::all())
+        ->withTags(Tag::all())
+        ->with('post', $post)
+        ->with('latestPosts', $latestPosts);
+    }
+    /**
+     * Display Front Category page for blog visitors
+     */
+    public function category(Category $category) {
+        $latestPosts = Post::latest()->get()->take(4);
+        return view('category')
+        ->with('category', $category)
+        ->withCategories(Category::all())
+        ->withTags(Tag::all())
+        ->with('posts', $category->posts()->searched()->paginate(4))
+        ->with('latestPosts', $latestPosts);
+    }
+    /**
+     * Display Front Tag page for blog visitors
+     */
+    public function tag(Tag $tag) {
+        $latestPosts = Post::latest()->get()->take(4);
+        return view('tag')
+        ->with('tag', $tag)
+        ->withCategories(Category::all())
+        ->withTags(Tag::all())
+        ->with('posts', $tag->posts()->searched()->paginate(4))
+        ->with('latestPosts', $latestPosts);
     }
 }

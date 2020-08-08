@@ -1,13 +1,13 @@
 @extends('layouts.front')
 
 @section('title')
-Welcome
+{{ $tag->name }}
 @endsection
 
 @section('page-header-text')
 
 <i class="decode-icon-resume wow tada"></i>
-<h1>Blog &amp; News</h1>
+<h1>{{ $tag->name }}</h1>
 
 @endsection
 
@@ -19,7 +19,7 @@ Welcome
                 @include('partials.post')
             @empty
             <div class="container">
-                <h5 class="text-center">No Result Found for <span class="text-danger"><em>{{request()->query('search') ?? 'this page'}}</em></span></h5>
+                <h5 class="text-center">No Result Found for <span class="text-danger"><em>{{request()->query('search') ?? $tag->name }}</em></span></h5>
             </div>
             @endforelse
 

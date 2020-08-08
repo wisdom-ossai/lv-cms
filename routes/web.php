@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'FrontController@index')->name('welcome');
 Route::get('post/{post}', 'FrontController@single')->name('post.single');
+Route::get('category/{category}', 'FrontController@category')->name('category.single');
+Route::get('tag/{tag}', 'FrontController@tag')->name('tag.single');
 
 Route::post('/comments/{post}', 'CommentsController@create')->name('comments.create');
 
