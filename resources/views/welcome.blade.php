@@ -15,7 +15,7 @@ Welcome
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            @foreach($posts as $post)
+            @forelse($posts as $post)
 
             <div class="blog-article">
 
@@ -41,19 +41,23 @@ Welcome
                 </div><!-- blog-article-content -->
 
             </div><!-- blog-article -->
-            @endforeach
+            @empty
+            <div class="container">
+                <h5 class="text-center">No Result Found for <span class="text-danger"><em>{{request()->query('search')}}</em></span></h5>
+            </div>
+            @endforelse
 
         </div><!-- col -->
         <div class="col-md-4">
 
             <div class="widget widget-search">
 
-                <form name="search" novalidate method="get" action="#">
+                <form name="search" novalidate method="GET" action="{{ route('welcome') }}">
                     <fieldset>
-                        <input id="s" type="search" name="search" placeholder="" required>
+                        <input id="s" type="search" name="search" placeholder="" value="{{request()->query('search')}}" required>
                         <label for="s">Search</label>
                         <span></span>
-                        <input type="submit" name="submit" value="">
+                        <!-- <input type="submit" name="submit" value=""> -->
                     </fieldset>
                 </form>
 
@@ -129,9 +133,8 @@ Welcome
         </div><!-- col -->
     </div><!-- row -->
 </div><!-- container -->
-
-{{$posts->links()}}
 @endsection
 
 @section('paging')
+{{$posts->appends(['search' => request()->query('search')])->links()}}
 @endsection
