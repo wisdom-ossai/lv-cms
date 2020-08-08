@@ -4641,59 +4641,59 @@ blockquote footer img {
 }
 
 @media (min-width: 1200px) {
-	
+
 	.tp-static-layer i {
 		padding-left: 1px;
 	}
-	
+
 }
 
 @media (max-width: 991px) {
-	
+
 	.custom.tparrows.tp-leftarrow,
 	.custom.tparrows.tp-rightarrow {
 		display: none;
 	}
-	
+
 	.tp-caption .btn {
 		padding: 12px 17px;
 		font-size: 9px;
 	}
-	
+
 	.tp-static-layer i {
 		display: none;
 	}
-	
+
 }
 
 @media (max-width: 767px) {
-	
+
 	.tp-bullets.custom {
 		top: auto !important;
 		bottom: -30px !important;
 	}
-	
+
 	.tp-caption .btn {
 		padding: 6px 7px;
 		font-size: 4px;
 		letter-spacing: 0.3px;
 	}
-	
+
 	.tp-static-layer {
 		display: none !important;
 	}
-	
+
 }
 
 @media (min-width: 480px) and (max-width: 767px) {
-	
-	
+
+
 	.tp-caption .btn {
 		padding: 8px 10px;
 		font-size: 6px;
 		letter-spacing: 0.5px;
 	}
-	
+
 }
 
 

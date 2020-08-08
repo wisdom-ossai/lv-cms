@@ -29,15 +29,16 @@ Welcome
                     <li class="date"><i class="decode-icon-time"></i> <a href="#">{{date('d-m-Y', strtotime($post->published_at))}}</a></li>
                     <li class="author"><i class="decode-icon-edit"></i> by <a href="#">{{$post->user->name}}</a></li>
                     <lI class="category"><i class="decode-icon-layers"></i> in <a href="#">{{ $post->category->name}}</a></lI>
-                    <li class="comments"><i class="decode-icon-chat"></i> <a href="#">{{$post->comments->count()}} Comment{{$post->comments->count() <2 ? '' : 's'}} </a></li> </ul> <!-- blog-article-details -->
+                    <li class="comments"><i class="decode-icon-chat"></i> <a href="#">{{$post->comments->count()}} Comment{{$post->comments->count() <2 ? '' : 's'}} </a></li>
+                </ul> <!-- blog-article-details -->
 
-                            <div class="blog-article-content">
+                <div class="blog-article-content">
 
-                                <p>{{$post->description}}</p>
+                    <p>{{$post->description}}</p>
 
-                                <a href="#">See more</a>
+                    <a href="#">See more</a>
 
-                            </div><!-- blog-article-content -->
+                </div><!-- blog-article-content -->
 
             </div><!-- blog-article -->
             @endforeach
@@ -89,11 +90,11 @@ Welcome
                 <ul>
                     @foreach($posts as $post)
                     <li>
-                        <img src="{{ $post->img_url}}" alt="">
+                        <img src="{{ $post->img_url}}" width="120" alt="">
                         <a class="post-title" href="#">{{ $post->title }}</a>
                         <div class="post-details">
                             by <a class="post-author" href="#">{{$post->user->name}}</a>
-                            <a class="post-date" href="#">{{ $post->published_at }}</a>
+                            <a class="post-date" href="#">{{date('d-m-Y', strtotime($post->published_at))}}</a>
                         </div><!-- post-details -->
                     </li>
                     @endforeach
@@ -129,22 +130,8 @@ Welcome
     </div><!-- row -->
 </div><!-- container -->
 
+{{$posts->links()}}
 @endsection
 
 @section('paging')
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-
-            <ul class="pagination">
-                <li class="active"><a href="#">1.</a></li>
-                <li><a href="#">2.</a></li>
-                <li><a href="#">3.</a></li>
-                <li><a href="#">4.</a></li>
-            </ul>
-
-        </div><!-- col -->
-    </div><!-- row -->
-</div><!-- container -->
 @endsection
