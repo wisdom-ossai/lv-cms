@@ -28,7 +28,7 @@
                     @endforeach
                 </div>
 
-                <div class="blog-article-author">
+                <div id="author" class="blog-article-author">
 
                     <img src="{{Gravatar::src($post->user->email)}}" alt="">
 
@@ -44,7 +44,7 @@
 
                 <h6 class="commentlist-title">Comments ({{$post->comments->count()}})</h6>
 
-                <ul class="commentlist">
+                <ul id="commentlist" class="commentlist">
                     @foreach($post->comments as $comment)
                     <li class="comment depth-1">
                         <div class="comment-body">

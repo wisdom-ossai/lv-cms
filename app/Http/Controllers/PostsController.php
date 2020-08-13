@@ -54,7 +54,7 @@ class PostsController extends Controller
             'img_url' => $request->img_url->store('posts'),
             'category_id' => $request->category_id,
             'published_at' => $request->published_at,
-            'user_id' => auth()->user->id
+            'user_id' => auth()->user()->id
         ]);
 
         if($request->tags) {

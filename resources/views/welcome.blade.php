@@ -16,7 +16,7 @@ Welcome
     <div class="row">
         <div class="col-md-8">
             @forelse($posts as $post)
-                @include('partials.post')
+                @include('partials.post-preview')
             @empty
             <div class="container">
                 <h5 class="text-center">No Result Found for <span class="text-danger"><em>{{request()->query('search') ?? 'this page'}}</em></span></h5>

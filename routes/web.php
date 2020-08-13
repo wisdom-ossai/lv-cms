@@ -20,7 +20,7 @@ Route::get('tag/{tag}', 'FrontController@tag')->name('tag.single');
 
 Route::post('/comments/{post}', 'CommentsController@create')->name('comments.create');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
