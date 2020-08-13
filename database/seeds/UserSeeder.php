@@ -3,6 +3,7 @@
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class UserSeeder extends Seeder
 {
@@ -21,6 +22,7 @@ class UserSeeder extends Seeder
                 'name' => 'Chuks Ossai',
                 'email' => 'chuks@gmail.com',
                 'role' => 'writer',
+                'profile_image' => Null,
                 'password' => Hash::make('password')
             ]);
         }
@@ -30,6 +32,7 @@ class UserSeeder extends Seeder
                 'name' => 'Blog Admin',
                 'email' => 'admin@gmail.com',
                 'role' => 'admin',
+                'profile_image' => Null,
                 'password' => Hash::make('password')
             ]);
         }

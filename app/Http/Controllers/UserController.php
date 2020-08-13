@@ -35,14 +35,23 @@ class UserController extends Controller
      }
 
      public function updateProfile(ProfileUpdateRequest $request) {
-         $user = auth()->user();
+        $user = auth()->user();
+        // $user = User::where('id', $userId);
+        $data = $request->only([
+            'email' => $request->email,
+            'name' => $request->name,
+            'about' => $request->about
+        ]);
 
-        //  dd($user);
-         $user->update([
-             'email' => $request->email,
-             'name' => $request->name,
-             'about' => $request->about
-         ]);
+        // dd($user->profile_image);
+
+        if ($request->hasFile('profile_image')) {
+            unlink('storage/' . $user->profile_image);
+            $img = $request->profile_image->store('users');
+            $data['profile_image'] = $img;
+        };
+
+        $user->update($data);
 
         session()->flash('success', 'Profile updated successfully');
         return redirect(route('users.profile'));

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'about'
+        'name', 'email', 'password', 'about', 'profile_image'
     ];
 
     /**
@@ -36,6 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function removeImage()
+    {
+        unlink('storage/' . $this->profile_image);
+    }
 
     public function isAdmin() {
         return $this->role === 'admin';

@@ -4,13 +4,13 @@
 <div class="card card-default">
     <div class="card-header d-flex justify-content-between align-items-center">
         <h6 class="w-75">User Profile</h6>
-        <div class="w-25"><img width="50" height="50" style="border-radius: 50%" src="{{ Gravatar::src($user->email) }}"></div>
+        <div class="w-25"><img width="50" height="50" style="border-radius: 50%" src="{{ $user->profile_image ? asset('storage/' . $user->profile_image) : Gravatar::src($user->email) }}"></div>
     </div>
     <div class="card-body">
 
         @include('partials.errors')
 
-        <form action="{{route('users.update') }}" method="POST">
+        <form action="{{route('users.update') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group mb-3">
@@ -24,6 +24,10 @@
             <div class="form-group mb-3">
                 <label for="about">About Me</label>
                 <textarea class="form-control" type="text" id="about" name="about">{{ $user->about ?? ''}}</textarea>
+            </div>
+            <div class="form-group mb-3">
+                <label for="profile_image">Image</label>
+                <input class="form-control" type="file" id="profile_image" name="profile_image">
             </div>
             <div class="form-group mb-3">
                 <button type="submit" class="btn btn-success btn-sm">{{isset($user) ? 'Submit Update' : 'Submit' }}</button>
