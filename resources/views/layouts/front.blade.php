@@ -128,8 +128,7 @@
                                     <p><img src="{{ asset('images/logo.png') }}" alt="">
                                     </p>
                                     <br>
-                                    <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet
-                                        tellus blandit. Etiam nec odio vestibul.</p>
+                                    <p>I am open to jobs on Angular, React, Express, Laravel. Do well to contact me.</p>
 
                                 </div>
 
