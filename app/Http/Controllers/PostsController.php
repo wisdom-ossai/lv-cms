@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use Illuminate\Http\Request;
 use App\Http\Requests\PostFormRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Post;
 use App\Tag;
-use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {

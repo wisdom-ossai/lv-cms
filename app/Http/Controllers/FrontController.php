@@ -6,7 +6,6 @@ use App\Category;
 use App\Comment;
 use App\Post;
 use App\Tag;
-use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {

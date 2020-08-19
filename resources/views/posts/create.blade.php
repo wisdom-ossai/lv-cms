@@ -24,13 +24,11 @@
             </div>
             <div class="form-group mb-3">
                 <label for="content">Content</label>
-                <!-- <textarea class="form-control" type="text" rows="8" id="content" name="content">{{ $post->content ?? ''}}</textarea> -->
-
                 <input id="content" type="hidden" name="content" value="{{ $post->content ?? ''}}">
                 <trix-editor input="content"></trix-editor>
             </div>
             <div class="form-group mb-3">
-                <label for="category_id">Publication Date</label>
+                <label for="category_id">Category</label>
                 <select id="category_id" class="form-control" type="text" name="category_id">
                     @foreach($categories as $category)
                     <option value="{{$category->id}}" @if(isset($post) && ($category->id === $post->category_id))

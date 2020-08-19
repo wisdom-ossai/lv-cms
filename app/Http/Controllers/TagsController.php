@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TagCreateRequest;
-use Illuminate\Http\Request;
 
 use App\Tag;
 
-use App\Http\Requests\TagFormRequest;
 use App\Http\Requests\TagUpdateRequest;
 
 class TagsController extends Controller
